@@ -1,0 +1,23 @@
+env:
+   CIRRUS_SHELL: bash
+task:
+  name: "Evolution X - CI Build"
+  timeout_in: 2500m
+  container:
+    image: ubuntu:latest
+    cpu: 32
+    memory: 32G
+
+  Setup_Enviroment:
+    - sudo apt install -y bc bison build-essential curl flex g++-multilib gcc-multilib git gnupg gperf libxml2 lib32z1-dev liblz4-tool libncurses5-dev libsdl1.2-dev libwxgtk3.0-gtk3-dev imagemagick git lunzip lzop schedtool squashfs-tools xsltproc zip zlib1g-dev openjdk-8-jdk python3 perl xmlstarlet virtualenv xz-utils rr jq libncurses5 pngcrush lib32ncurses5-dev git-lfs libxml2 openjdk-11-jdk-headless repo
+  Checking_DiskSpace:
+    - df -h
+  Configure_Git:
+    - git config --global user.name "your username"
+    - git config --global user.email yourmail@example.com
+  Sync_Repo:
+    - curl -sL https://raw.githubusercontent.com/hoaggggggg/EvoBuild/main/sync_repo.sh | bash
+  Build_Rom:
+    - curl -sL https://raw.githubusercontent.com/hoaggggggg/EvoBuild/main/build_rom.sh | bash
+  Upload_Rom:
+    - curl -sL https://raw.githubusercontent.com/hoaggggggg/EvoBuild/main/upload_rom.sh | bash
