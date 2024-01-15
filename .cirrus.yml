@@ -5,7 +5,7 @@ task:
   name: "Evolution X - System Image Builder"
   timeout_in: 3600m
   container:
-      image: ghcr.io/sushrut1101/docker:arch
+      image: ubuntu:latest
       cpu: 8
       memory: 20G
 
