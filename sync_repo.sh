@@ -1,5 +1,7 @@
 #!/bin/bash
 
+git config --global user.name "your username"
+git config --global user.email yourmail@example.com
 mkdir evo
 cd evo
 repo init -u https://github.com/Evolution-X/manifest -b udc
