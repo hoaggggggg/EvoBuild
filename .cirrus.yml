@@ -1,22 +1,22 @@
 env:
-
-  CONFIG: setup.sh
-  CIRRUS_SHELL: bash
+    CIRRUS_SHELL: bash
 
 task:
-  name: "Evolution X - CI Build"
-  timeout_in: 2500m
+  name: "Evolution X - System Image Builder"
+  timeout_in: 3600m
   container:
-    image: ubuntu:20.04   # Use a specific version instead of "latest"
-    cpu: 8
-    memory: 20G
+      image: ubuntu:20.04
+      cpu: 8
+      memory: 20G
 
+  Setup_script:
+      - curl -sL https://raw.githubusercontent.com/hoaggggggg/EvoBuild/main/setup.sh | bash
 
-  Sync_Repo:
-    - curl -sL https://raw.githubusercontent.com/hoaggggggg/EvoBuild/main/sync_repo.sh | bash
+  Sync_script:
+      - curl -sL https://raw.githubusercontent.com/hoaggggggg/EvoBuild/main/sync_repo.sh | bash
 
-  Build_Rom:
-    - curl -sL https://raw.githubusercontent.com/hoaggggggg/EvoBuild/main/build_rom.sh | bash
+  Build_script:
+      - curl -sL https://raw.githubusercontent.com/hoaggggggg/EvoBuild/main/build_rom.sh | bash
 
-  Upload_Rom:
-    - curl -sL https://raw.githubusercontent.com/hoaggggggg/EvoBuild/main/upload_rom.sh | bash
+  Upload_script:
+      - curl https://raw.githubusercontent.com/hoaggggggg/EvoBuild/main/upload_rom.sh | bash
