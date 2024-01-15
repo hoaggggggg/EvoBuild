@@ -10,6 +10,8 @@ task:
       memory: 20G
 
   Setup_script:
+      - sudo apt install update
+      - sudo apt install curl
       - curl -sL https://raw.githubusercontent.com/hoaggggggg/EvoBuild/main/setup.sh | bash
 
   Sync_script:
